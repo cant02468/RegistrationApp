@@ -2,26 +2,24 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class Course {
-    private String name;
+    private String dept;
     private int level;
     private int section;
-    private LocalTime time;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
-    private Course(String name, int level, int section, LocalTime time) {
-        this.name = name;
-        this.level = level;
-        this.section = section;
-        this.time = time;
+    public Course(String course) {
+        String[] values = course.split(" ");
+
+        this.dept = values[0];
+        this.level = Integer.parseInt(values[1]);
+        this.section = Integer.parseInt(values[2]);
+        this.startTime = LocalTime.parse(values[3],DateTimeFormatter.ofPattern("H:mm"));
+        this.endTime = startTime.plusHours(1);
     }
 
     @Override
     public String toString() {
-        return name + ' ' + level + ' ' + section + ' ' + time;
-    }
-
-    public static Course valueOf(String courseValue) {
-        String[] values = courseValue.split(" ");
-        if (values[3].length() == 4) { values[3] = "0" + values[3]; }
-        return new Course(values[0], Integer.parseInt(values[1]), Integer.parseInt(values[2]),  LocalTime.parse(values[3],DateTimeFormatter.ofPattern("HH:mm")));
+        return dept + ' ' + level + ' ' + section + ' ' + startTime + '-' + endTime;
     }
 }
