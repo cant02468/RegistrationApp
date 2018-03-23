@@ -1,8 +1,4 @@
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +6,13 @@ public class Main {
 
         Registrar registrar = new Registrar( "registrar.txt" );
         System.out.println( "Registrar:\n" + registrar );
+
+        String dept = "CPSC";
+        ArrayList<Course> registrarCoursesInDept = registrar.findDeptCourses( dept );
+        System.out.println( "The registrar courses in " + dept + " are " + registrarCoursesInDept );
+
+        Transcript transcript = new Transcript("transcript.txt");
+        System.out.println("The transcript contains the following: " + transcript);
     }
 }
         /**

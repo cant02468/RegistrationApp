@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Registrar{
@@ -21,5 +22,11 @@ public class Registrar{
     public String toString() {
         return "Courses in the Registrar{" + courses +
                 '}';
+    }
+
+    public ArrayList<Course> findDeptCourses(String dept){
+        return (ArrayList<Course>) courses.stream()
+                .filter( course -> course.getDept().equals(dept))
+                .collect(Collectors.toList());
     }
 }
