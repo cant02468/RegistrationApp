@@ -13,6 +13,9 @@ public class Main {
 
         Transcript transcript = new Transcript("transcript.txt");
         System.out.println("The transcript contains the following: " + transcript);
+
+        Curriculum computerScience = new Curriculum("curriculum.dat");
+        System.out.println(computerScience);
     }
 }
         /**
