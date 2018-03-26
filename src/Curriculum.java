@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.stream.Stream;
 
 public class Curriculum {
-    ArrayList<CurriculumCourse> courses;
-    ArrayList<Category> categories;
+    private ArrayList<CurriculumCourse> courses;
+    private ArrayList<Category> categories;
 
-    public Curriculum(String fileName) {
+    Curriculum(String fileName) {
         ArrayList<CurriculumCourse> baseCourses = new ArrayList<>();
         ArrayList<Category> baseCategories = new ArrayList<>();
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
