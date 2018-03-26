@@ -25,9 +25,7 @@ public class Curriculum {
 
     @Override
     public String toString() {
-        return "Curriculum{" +
-                "courses" + courses +
-                ", categories:" + categories +
-                '}';
+        return "Courses" + courses +
+                ", along with the following categories:" + categories;
     }
 }

@@ -10,7 +10,7 @@ public class Category {
     Category(String category) {
         deptNames = new ArrayList<>();
         String[] values = category.replaceAll("\\* ", "").split("(?<=\\D)(?=\\d)");
-        this.name = values[0];
+        this.name = values[0].replaceAll("\\s+", " ");
         if (this.name.contains("African American Heritage")) {this.deptNames.add("AADS");}
         else if (this.name.contains("Human Past")) {this.deptNames.addAll(Arrays.asList("HIST", "PHIL", "THEO"));}
         else if (this.name.contains("Scientific Reasoning")) {this.deptNames.addAll( Arrays.asList("BIOL", "CHEM", "PHYS"));}
@@ -22,7 +22,7 @@ public class Category {
     public String toString() {
         return name +
                 "requires " + creditHours +
-                " credit hours and includes courses from " + deptNames;
+                " credit hours from courses in the " + deptNames + " department";
     }
 
     public String getName() {

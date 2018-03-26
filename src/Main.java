@@ -15,7 +15,7 @@ public class Main {
         System.out.println("The transcript contains the following: " + transcript);
 
         Curriculum computerScience = new Curriculum("curriculum.dat");
-        System.out.println(computerScience);
+        System.out.println("The Computer Science curriculum requires the following: " + computerScience);
     }
 }
         /**
