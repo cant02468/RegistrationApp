@@ -13,10 +13,10 @@ public class Main {
         ArrayList<CurriculumCourse> coursesNeededToGraduate = registration.whatsLeftToTake();
         System.out.println( "What's left to take:\n" + coursesNeededToGraduate );
 
-         /**
         ArrayList<Course> prospectiveCoursesToTakeThisSemester = registration.whatsNeededAndAvailable();
         System.out.println( "Prospective courses to take this semester:\n" + prospectiveCoursesToTakeThisSemester );
 
+        /**
         ArrayList<Course> neededCoursesWithNoOverlap = registration.whatCoursesToTakeTogether();
         System.out.println( "What courses are needed and no time overlap:\n" + neededCoursesWithNoOverlap );
 

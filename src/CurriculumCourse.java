@@ -23,6 +23,10 @@ public class CurriculumCourse {
         return dept;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(this == obj)
