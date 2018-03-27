@@ -58,6 +58,6 @@ public class Course {
         if(obj == null || obj.getClass()!= this.getClass())
             return false;
         Course comparison = (Course) obj;
-        return (comparison.dept.equals(this.dept) && comparison.number == this.number && comparison.section == this.section && comparison.startTime == this.startTime && comparison.endTime == this.endTime);
+        return (comparison.dept.equals(this.dept) && comparison.number == this.number && comparison.section == this.section);
     }
 }
