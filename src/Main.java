@@ -4,18 +4,25 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("\n\nHello, RegistrationApp!\n");
 
-        Registrar registrar = new Registrar( "registrar.txt" );
-        System.out.println( "Registrar:\n" + registrar );
+        Registration registration = new Registration( "registrar.txt", "curriculum.dat", "transcript.txt" );
+        // TODO output registration data in three groupings:
+        // registrar.txt sorted by time
+        // curriculum.dat sorted by credit hours
+        // transcript.txt sorted by department
 
-        String dept = "CPSC";
-        ArrayList<Course> registrarCoursesInDept = registrar.findDeptCourses( dept );
-        System.out.println( "The registrar courses in " + dept + " are " + registrarCoursesInDept );
+        ArrayList<CurriculumCourse> coursesNeededToGraduate = registration.whatsLeftToTake();
+        System.out.println( "What's left to take:\n" + coursesNeededToGraduate );
 
-        Transcript transcript = new Transcript("transcript.txt");
-        System.out.println("The transcript contains the following: " + transcript);
+         /**
+        ArrayList<Course> prospectiveCoursesToTakeThisSemester = registration.whatsNeededAndAvailable();
+        System.out.println( "Prospective courses to take this semester:\n" + prospectiveCoursesToTakeThisSemester );
 
-        Curriculum computerScience = new Curriculum("curriculum.dat");
-        System.out.println("The Computer Science curriculum requires the following: " + computerScience);
+        ArrayList<Course> neededCoursesWithNoOverlap = registration.whatCoursesToTakeTogether();
+        System.out.println( "What courses are needed and no time overlap:\n" + neededCoursesWithNoOverlap );
+
+        ArrayList<Course> whatToTake = registration.registerFor( 6 );
+        System.out.println( "What 6 courses should you take: " + whatToTake );
+         */
     }
 }
         /**

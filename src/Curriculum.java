@@ -23,6 +23,14 @@ public class Curriculum {
         this.categories = baseCategories;
     }
 
+    public ArrayList<CurriculumCourse> getCourses() {
+        return courses;
+    }
+
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
     @Override
     public String toString() {
         return "Courses" + courses +

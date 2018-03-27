@@ -18,6 +18,14 @@ public class Course {
         this.endTime = startTime.plusHours(1);
     }
 
+    Course(Course rhs){
+        this.dept = rhs.dept;
+        this.number = rhs.number;
+        this.section = rhs.section;
+        this.startTime = rhs.startTime;
+        this.endTime = rhs.endTime;
+}
+
     public String getDept() {
         return dept;
     }
@@ -43,7 +51,13 @@ public class Course {
         return dept + ' ' + number + ' ' + section + ' ' + startTime + '-' + endTime;
     }
 
-    public boolean equals(Course course){
-        return this.dept.equals(course.getDept()) && this.number == course.getNumber() && this.section == course.getSection();
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj)
+            return true;
+        if(obj == null || obj.getClass()!= this.getClass())
+            return false;
+        Course comparison = (Course) obj;
+        return (comparison.dept.equals(this.dept) && comparison.number == this.number && comparison.section == this.section && comparison.startTime == this.startTime && comparison.endTime == this.endTime);
     }
 }

@@ -13,8 +13,24 @@ public class CurriculumCourse {
         this.creditHours = Integer.parseInt(values[2]);
     }
 
+    CurriculumCourse(CurriculumCourse rhs) {
+        this.dept = rhs.dept;
+        this.number = rhs.number;
+        this.creditHours = rhs.creditHours;
+    }
+
     public String getDept() {
         return dept;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj)
+            return true;
+        if(obj == null || obj.getClass()!= this.getClass())
+            return false;
+        CurriculumCourse comparison = (CurriculumCourse) obj;
+        return (comparison.dept.equals(this.dept) && comparison.number == this.number && comparison.creditHours == this.creditHours);
     }
 
     @Override

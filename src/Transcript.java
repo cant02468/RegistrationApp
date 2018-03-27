@@ -17,9 +17,12 @@ public class Transcript {
         this.courses = base;
     }
 
+    public ArrayList<CurriculumCourse> getCourses() {
+        return courses;
+    }
+
     @Override
     public String toString() {
-        return "Transcript{ " + courses +
-                '}';
+        return "Transcript" + courses;
     }
 }
