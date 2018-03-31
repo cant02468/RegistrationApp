@@ -57,7 +57,7 @@ public class Registrar{
     }
     public ArrayList<Course> curriculumCoursesToCourses(ArrayList<CurriculumCourse> curriculumCourses){
         ArrayList<Course> returnArray = new ArrayList<>();
-        curriculumCourses.forEach(curriculumCourse -> returnArray.addAll(findDeptAndNumberCourses(curriculumCourse.getDept(),curriculumCourse.getNumber())));
+        curriculumCourses.forEach(curriculumCourse -> returnArray.addAll(curriculumCourseToCourses(curriculumCourse)));
         return returnArray;
     }
 }
