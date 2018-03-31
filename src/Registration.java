@@ -22,15 +22,8 @@ public class Registration {
     }
 
     public ArrayList<Course> whatsNeededAndAvailable() {
-        ArrayList<Course> returnArray = new ArrayList<>();
-        ArrayList<CurriculumCourse> coursesNeeded = whatsLeftToTake();
-        Set<String> departments = new HashSet<>();
-        for (CurriculumCourse curriculumCourse: coursesNeeded) {
-            if (!departments.contains(curriculumCourse.getDept())){
-                departments.add(curriculumCourse.getDept());
-                returnArray.addAll(registrar.findDeptAndNumberCourses(curriculumCourse.getDept(), curriculumCourse.getNumber()));
-            }
-        }
-        return returnArray;
+        Set<Course> coursesNeeded = new HashSet<>(registrar.curriculumCoursesToCourses(whatsLeftToTake()));
+        coursesNeeded.addAll(registrar.findAllCoursesFromAllCategories(curriculum.getCategories()));
+        return new ArrayList<>(coursesNeeded);
     }
 }
