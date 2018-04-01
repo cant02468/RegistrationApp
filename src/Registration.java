@@ -14,13 +14,10 @@ public class Registration {
         transcript = new Transcript(transcriptFile);
     }
 
-    //is African American Past satisfied?
-    public ArrayList<Integer> categorySatisfaction(){
-        ArrayList<Integer> creditHours = new ArrayList<>();
-        for (Category category: curriculum.getCategories()) {
-            creditHours.add(curriculum.categoryCreditHoursNeededMultipleCourses(category, transcript.getCourses()));
-        }
-        return creditHours;
+    public ArrayList<CurriculumCourse> transcriptCoursesLeftover(){
+        ArrayList<CurriculumCourse> returnArray = new ArrayList<>(this.transcript.getCourses());
+        returnArray.removeAll(this.curriculum.getCourses());
+        return returnArray;
     }
 
     public ArrayList<CurriculumCourse> whatsLeftToTake() {

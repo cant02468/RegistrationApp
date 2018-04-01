@@ -16,8 +16,9 @@ public class Main {
         ArrayList<Course> prospectiveCoursesToTakeThisSemester = registration.whatsNeededAndAvailable();
         System.out.println( "Prospective courses to take this semester:\n" + prospectiveCoursesToTakeThisSemester );
 
-        ArrayList<Integer> testCourses = registration.categorySatisfaction();
-        System.out.println(testCourses);
+        ArrayList<CurriculumCourse> transcriptLeftoverCourses = registration.transcriptCoursesLeftover();
+        System.out.println( "You have extra courses:\n" + transcriptLeftoverCourses);
+
         /**
         ArrayList<Course> neededCoursesWithNoOverlap = registration.whatCoursesToTakeTogether();
         System.out.println( "What courses are needed and no time overlap:\n" + neededCoursesWithNoOverlap );
