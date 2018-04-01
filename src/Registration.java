@@ -14,6 +14,14 @@ public class Registration {
         transcript = new Transcript(transcriptFile);
     }
 
+    //is African American Past satisfied?
+    public ArrayList<Integer> categorySatisfaction(){
+        ArrayList<Integer> creditHours = new ArrayList<>();
+        for (Category category: curriculum.getCategories()) {
+            creditHours.add(curriculum.categoryCreditHoursNeededMultipleCourses(category, transcript.getCourses()));
+        }
+        return creditHours;
+    }
 
     public ArrayList<CurriculumCourse> whatsLeftToTake() {
         ArrayList<CurriculumCourse> returnArray = new ArrayList<>(this.curriculum.getCourses());

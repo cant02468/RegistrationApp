@@ -27,6 +27,10 @@ public class CurriculumCourse {
         return number;
     }
 
+    public int getCreditHours() {
+        return creditHours;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(this == obj)

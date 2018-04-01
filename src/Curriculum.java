@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +31,27 @@ public class Curriculum {
 
     public ArrayList<Category> getCategories() {
         return categories;
+    }
+
+    public boolean categorySatisfaction(Category category, List<CurriculumCourse> courses){
+        return categoryCreditHoursNeededMultipleCourses(category, courses) <= 0;
+    }
+
+    public int categoryCreditHoursNeededMultipleCourses (Category category, List<CurriculumCourse> courses){
+        int leftoverCreditHours = category.getCreditHours();
+        for (CurriculumCourse course : courses) {
+            if (category.getDeptNames().contains(course.getDept())){
+                leftoverCreditHours -= course.getCreditHours();
+            }
+        }
+        return leftoverCreditHours;
+    }
+
+    public int categoryCreditHoursNeededSingleCourse (Category category, CurriculumCourse course){
+        if (category.getDeptNames().contains(course.getDept())){
+            return category.getCreditHours() - course.getCreditHours();
+        }
+        else return category.getCreditHours();
     }
 
     @Override
